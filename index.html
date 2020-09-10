@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Parcel Sandbox</title>
+    <meta charset="UTF-8" />
+  </head>
+
+  <body>
+    <script>
+      function go() {
+          let location = document.getElementById("input").value
+          let url = "http://api.weatherapi.com/v1/current.json?key=0a66a51876af4c29beb74900201009&q=".concat(location);
+          let changeOutput = (response) => {
+              document.getElementById("output").innerHTML = response;
+          }
+          let xmlHttp = new XMLHttpRequest();
+          xmlHttp.onreadystatechange = function() { 
+              if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
+                  changeOutput(xmlHttp.responseText);
+          }
+          xmlHttp.open("GET",url,true);
+          xmlHttp.send(null);
+      }
+    </script>
+    <div id="app"></div>
+    <br /><br />
+    <!-- <form id="form" onsubmit="return go()"> -->
+      <label for="location">Locaton:</label><br>
+      <input type="text" id="input" />
+    <!-- </form> -->
+    <br><br> 
+    <button type="submit" onclick="go()">Submit</button>
+    <br><br>
+    <label>Output:</label><br><br> 
+    <div id="output">
+    </div>
+  </body>
+</html>
