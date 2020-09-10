@@ -9,7 +9,7 @@
     <script>
       function go() {
           let location = document.getElementById("input").value
-          let url = "http://api.weatherapi.com/v1/current.json?key=0a66a51876af4c29beb74900201009&q=".concat(location);
+          let url = "https://api.weatherapi.com/v1/current.json?key=0a66a51876af4c29beb74900201009&q=".concat(location);
           let changeOutput = (response) => {
               document.getElementById("output").innerHTML = response;
           }
